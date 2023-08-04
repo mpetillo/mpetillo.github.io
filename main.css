@@ -1,0 +1,238 @@
+/* BASICS*/
+
+:root{
+    --newspapersize: 1.25px;
+    --bignewspapersize: 3px;
+}
+
+body{
+    background: linear-gradient(90deg,#ddd,#fff);
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: darkgray;
+    margin: 0;
+}
+
+header > h1{
+    text-align: center;
+    margin: 0;
+}
+
+@font-face {
+    font-family: Type-face, sans-serif;
+    src: url(Chomsky.otf);
+}
+
+.box {
+    display:inline-grid;
+    font-size:35px;
+    font-weight:bold;
+    width:198px;
+    height:198px;
+    bottom: 0;
+    text-align: center;
+  }
+
+.box-small {
+    position: relative;
+    display:inline-grid;
+    place-content:space-evenly;
+    font-size:35px;
+    font-weight:bold;
+    width:200px;
+    height: 200px;
+}
+
+#masthead {
+    text-align: center;
+    word-wrap: normal;
+    vertical-align: text-top;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    height: 1.5em
+}
+
+/* BUTTONS FOR ARTICLES */
+.shelf{
+    display:grid
+}
+
+.shelf-back {
+    display: grid;
+    place-content: space-evenly;
+    height: 275px;
+    width: 275px;
+    background-color: #966F33;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.shelf-front {
+    height: 150px;
+    width: 275px;
+    background-color: #966F33;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    position: relative;
+    top:-152px;
+}
+
+.one {
+    background:
+      radial-gradient(var(--newspapersize) at 25% 50% ,white 99%,#0000 101%) top/calc(var(--newspapersize) * 4) calc(var(--newspapersize) * 2) repeat-x,
+      radial-gradient(var(--newspapersize) at 75% 0%,#0000 98%,white) 50% var(--newspapersize)/calc(var(--newspapersize) * 4) 100% repeat-x; 
+}
+
+.one-small{
+    background:
+    radial-gradient(var(--newspapersize) at 25% 50% ,black 99%,#0000 101%) top/calc(var(--newspapersize) * 4) calc(var(--newspapersize) * 2) repeat-x,
+    radial-gradient(var(--newspapersize) at 75% 0%,#0000 98%,black) 50% var(--newspapersize)/calc(var(--newspapersize) * 4) 100% repeat-x;
+}
+
+.section-front{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-back{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.animationup{
+    animation-name: newspaperhover;
+    animation-duration: .1s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+
+@keyframes newspaperhover {
+    from { top: 0px; }
+    to { top: -25px; }
+}
+
+.animationdown{
+    animation-name: newspapernormal;
+    animation-duration: .1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes newspapernormal {
+    from { top: -25px; }
+    to { top: 0px; }
+}
+
+/* ARTICLES */
+
+.section-background{
+    background-color: darkgoldenrod;
+    z-index: -1;
+    opacity: 0%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+}
+
+.article-front-waves{
+    background:
+      radial-gradient(var(--bignewspapersize) at 25% 50% ,white 99%,#0000 101%) top/calc(var(--bignewspapersize) * 4) calc(var(--bignewspapersize) * 2) repeat-x,
+      radial-gradient(var(--bignewspapersize) at 75% 0%,#0000 98%,white) 50% var(--bignewspapersize)/calc(var(--bignewspapersize) * 4) 100% repeat-x; 
+}
+
+.article-front {
+    display:inline-grid;
+    font-size:35px;
+    font-weight:bold;
+    width:calc(100vw - 2px);
+    max-width:798px;
+    height:auto;
+    margin-top: 1px;
+    margin-bottom: .5px;
+    bottom: 0;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.article-back-waves{
+    background:
+    radial-gradient(var(--bignewspapersize) at 25% 50% ,black 99%,#0000 101%) top/calc(var(--bignewspapersize) * 4) calc(var(--bignewspapersize) * 2) repeat-x,
+    radial-gradient(var(--bignewspapersize) at 75% 0%,#0000 98%,black) 50% var(--bignewspapersize)/calc(var(--bignewspapersize) * 4) 100% repeat-x;
+}
+
+.article-back{
+    position: relative;
+    display:inline-grid;
+    place-content:space-evenly;
+    font-size:35px;
+    font-weight:bold;
+    width: 100vw;
+    max-width: 800px;
+    height: auto;
+    min-height: calc(100vh + 0.35%);
+    margin-top: 50px;
+}
+
+@keyframes backgroundarticlefadein{
+    from { opacity: 0;}
+    to {opacity: 0.5;}
+}
+
+.animationbbgfadein{
+    animation-name: backgroundarticlefadein;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes backgroundarticlefadeout{
+    from { opacity: 0.5;}
+    to {opacity: 0;}
+}
+
+.animationbbgfadeout{
+    animation-name: backgroundarticlefadeout;
+    animation-duration: .2s;
+    animation-fill-mode: forwards;
+}
+
+/* test */
+.container {
+    width: 100vw;
+    max-width: 802px; /* Set the desired width */
+    height: 95vh; /* Set the desired height */
+    overflow: auto;
+    margin: 0;
+  }
+
+.center {
+    display: grid;
+    align-items:self-start;
+    justify-items: center;
+    margin: 0;
+}
+  
+  /* Customize scrollbar appearance (optional) */
+  .container::-webkit-scrollbar {
+    width: 8px; /* Set the scrollbar width */
+  }
+  
+  .container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Set the scrollbar track color */
+  }
+  
+  .container::-webkit-scrollbar-thumb {
+    background: #888; /* Set the scrollbar thumb color */
+  }
