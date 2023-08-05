@@ -19,8 +19,8 @@ header{ /* just for the header*/
 }
 
 @font-face {
-    font-family: Type-face, sans-serif;
-    src: url(fonts\Chomsky.otf);
+    font-family: 'Type-face';
+    src: url('fonts/Chomsky.otf');
 }
 
 header > h1{
