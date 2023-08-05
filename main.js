@@ -23,12 +23,10 @@ function unhoverover(ids) {
 }
 
 function pageup(id){//this takes a single id, the section that was clicked
-  const background = document.getElementById("article-bg");
-  const paper = document.getElementById("article");
-  background.style.zIndex = 0;
-  background.classList.remove("animationbbgfadeout");  
-  background.classList.add("animationbbgfadein");
-
+  const article = document.getElementById("articles");
+  const menu = document.getElementById("menu-flex");
+  menu.classList.add("fullfadeout")
+  article.innerHTML = "<div class='center' id='articlegrid'><div class='container article-in'><div class='article-back article-back-waves'><div class='article-front article-front-waves' id='paper'><h1>TOMFUCKERY</h1></div></div></div></div>";
 }
 
 function pagedown(){//in theory, we don't need to use any ids here.
