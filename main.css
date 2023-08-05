@@ -1,29 +1,32 @@
 /* BASICS*/
 
 :root{
-    --newspapersize: 1.25px;
-    --bignewspapersize: 3px;
+    --newspapersize: 1.25px; /* for the button*/
+    --bignewspapersize: 3px; /* for the article page*/
 }
 
-body{
+body{ /*background, etc*/
     background: linear-gradient(90deg,#ddd,#fff);
     margin: 0;
     padding: 0;
 }
 
-header{
+header{ /* just for the header*/
     background-color: darkgray;
     margin: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@font-face {
+    font-family: Type-face, sans-serif;
+    src: url(fonts\Chomsky.otf);
 }
 
 header > h1{
     text-align: center;
     margin: 0;
-}
-
-@font-face {
     font-family: Type-face, sans-serif;
-    src: url(Chomsky.otf);
 }
 
 .box {
@@ -213,11 +216,16 @@ header > h1{
 .container {
     width: 100vw;
     max-width: 802px; /* Set the desired width */
-    height: 95vh; /* Set the desired height */
+    height: 91.7vh; /* Set the desired height */
     overflow: auto;
     margin: 0;
     margin-top: -24px;
   }
+
+.container p{
+    font-size: 16px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
 
 .center {
     display: grid;
