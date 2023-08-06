@@ -88,6 +88,18 @@ h1{
     position: fixed;
 }
 
+@keyframes article-come-out{
+    from {bottom: 0; height: 92vh;}
+    to {bottom: 0;height: 0vh;}
+}
+
+.article-out{
+    animation-name: article-come-out;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    position: fixed;
+}
+
 /*other classes*/
 
 .box {
@@ -98,6 +110,7 @@ h1{
     height:198px;
     bottom: 0;
     text-align: center;
+    cursor: pointer;
   }
 
 .box-small {
@@ -232,6 +245,24 @@ h1{
   
 .container::-webkit-scrollbar {
     width: 0; /* Set the scrollbar width */
+}
+
+.back-button{
+    display: inline-flex; /* Use flexbox to center the content */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: 2px solid black; /* Border color */
+    background-color: lightgrey; /* Button color */
+    color: black; /* Text color */
+    border-radius: 5px; /* Rounded corners */
+    width: 100px;
+    height: 12px;
+    cursor: pointer;
 }
 
 /*ids*/
