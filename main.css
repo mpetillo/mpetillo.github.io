@@ -226,7 +226,7 @@ h1{
     max-width: 802px; /* Set the desired width */
     height: 92vh; /* Set the desired height */
     overflow: auto;
-    
+    scrollbar-width: none;
     margin: 0;
     margin-top: -24px;
   }
