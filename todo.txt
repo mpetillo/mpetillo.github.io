@@ -1,0 +1,6 @@
+To do:
+1. fix the column issue with articles
+2. fix the problem with the mobile organization
+3. add content for projects, clips, contact me
+4. add footer (should fade after article pops up)
+5. update designs! update designs a lot! please update designs so that things actually look good! 
