@@ -1,0 +1,27 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Create a responsive grid layout for the article */
+.article-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Main content and sidebar */
+    gap: 20px; /* Space between main and sidebar */
+    padding: 20px; /* Padding for the container */
+}
+
+/* Style the main article content */
+.main-article {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Style the related articles or sidebar content */
+.related-articles {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
