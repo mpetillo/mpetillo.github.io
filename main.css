@@ -14,9 +14,8 @@ body{ /*background, etc*/
     background: linear-gradient(90deg,#ddd,#fff);
     margin: 0;
     padding: 0;
-    min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 55px auto auto;
 }
 
 header{ /* just for the header*/
@@ -24,20 +23,28 @@ header{ /* just for the header*/
     margin: 0;
     padding-top: 10px;
     padding-bottom: 10px;
+    grid-row: 1;
 }
 
 footer {
     background-color: darkgray;
     margin-top: auto;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    grid-row: 3;
 }
 
 h1{
     text-align: center;
     margin: 0;
     font-family: Type-face, sans-serif;
+}
+
+.content{
+    height: 100%;
+    overflow: auto;
+    height: calc(100vh - 55px - 50.4px);
 }
 
 /*animations and animation classes*/
@@ -144,7 +151,10 @@ h1{
 }
 
 .shelf{
-    display:grid
+    display:grid;
+    margin-left: 18px;
+    margin-right: 18px;
+    margin-top: 24px;
 }
 
 .shelf-back {
@@ -306,4 +316,9 @@ h1{
     vertical-align: text-top;
 }
 
-    
+/* we are adjust some things based on the screen size*/
+@media screen and (max-width: 768px){
+    .shelf{
+        margin: 0;
+    }
+}
