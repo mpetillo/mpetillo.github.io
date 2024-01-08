@@ -1,324 +1,67 @@
-/*base, foot and fonts*/ 
-
-:root{
-    --newspapersize: 1.25px; /* for the button*/
-    --bignewspapersize: 3px; /* for the article page*/
-}
+/* COLOR PALETTE: #C0DFD9, #E9ECE6, #B5CBC6, #AAB8B6, #545B5A*/
 
 @font-face {
-    font-family: 'Type-face';
-    src: url('fonts/Chomsky.otf');
+    font-family: "FragmentMono";
+    src: url(fonts/FragmentMono-Regular.ttf); /* Ensure this path is correct */
 }
 
-body{ /*background, etc*/
-    background: linear-gradient(90deg,#ddd,#fff);
-    margin: 0;
-    padding: 0;
-  display: grid;
-  grid-template-rows: 55px auto auto;
+body {
+    background-color: #B5CBC6;
 }
 
-header{ /* just for the header*/
-    background-color: darkgray;
-    margin: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    grid-row: 1;
+.open {
+    display: flex; /* Use flexbox for alignment */
+    flex-direction: column;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    background-color: #c0dfd9;
+    font-family: "FragmentMono"; /* Set the custom font */
+    font-size: 16px; /* Example font size, adjust as needed */
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
 }
 
-footer {
-    background-color: darkgray;
-    margin-top: auto;
+.open > h1, .open > h2 {
     text-align: center;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    grid-row: 3;
+    width: 100%; /* Ensure full width for center alignment */
 }
 
-h1{
-    text-align: center;
-    margin: 0;
-    font-family: Type-face, sans-serif;
-}
-
-.content{
-    height: 100%;
-    overflow: auto;
-    height: calc(100vh - 55px - 50.4px);
-}
-
-/*animations and animation classes*/
-
-@keyframes newspaperhover {
-    from { top: 0px; }
-    to { top: -25px; }
-}
-
-.animationup{
-    animation-name: newspaperhover;
-    animation-duration: .1s;
+.timetogo{
+    animation-name: slide-open;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
-    animation-direction: normal;
+    position: fixed;
 }
 
-@keyframes newspapernormal {
-    from { top: -25px; }
-    to { top: 0px; }
+@keyframes slide-open{
+    from {height: 100%;}
+    to {height: 0%;}
 }
 
-.animationdown{
-    animation-name: newspapernormal;
-    animation-duration: .1s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fullfadein{
-    from { opacity: 0;}
+@keyframes fade-in{
+    from {opacity: 0;}
     to {opacity: 1;}
 }
 
-.fullfadein{
-    animation-name: fullfadein;
-    animation-duration: .2s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fullfadeout{
-    from { opacity: 1;}
-    to {opacity: 0;}
-}
-
-.fullfadeout{
-    animation-name: fullfadeout;
-    animation-duration: .2s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes article-come-in{
-    from {bottom: 0; height: 0;}
-    to {bottom: 0;height: 92vh;}
-}
-
-.article-in{
-    animation-name: article-come-in;
+.fadein {
+    animation-name: fade-in;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
-    position: fixed;
 }
 
-@keyframes article-come-out{
-    from {bottom: 0; height: 92vh;}
-    to {bottom: 0;height: 0vh;}
+header {
+    opacity: 0;
 }
 
-.article-out{
-    animation-name: article-come-out;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
-    position: fixed;
+footer {
+    opacity: 0;
 }
 
-/*other classes*/
-
-.box {
-    display:inline-grid;
-    font-size:35px;
-    font-weight:bold;
-    width:198px;
-    height:198px;
-    bottom: 0;
-    text-align: center;
-    cursor: pointer;
-  }
-
-.box-small {
-    position: relative;
-    display:inline-grid;
-    place-content:space-evenly;
-    font-size:35px;
-    font-weight:bold;
-    width:200px;
-    height: 200px;
+#mynavbar {
+    background-color: #545B5A;
+    color: lightgray;
 }
-
-.flex-container {
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    height: 0;
-    margin: 0;
-    z-index: 5;
-}
-
-.shelf{
-    display:grid;
-    margin-left: 18px;
-    margin-right: 18px;
-    margin-top: 24px;
-}
-
-.shelf-back {
-    border-radius: 30px 30px 0 0;
-    display: grid;
-    place-content: space-evenly;
-    height: 275px;
-    width: 275px;
-    background-image: conic-gradient(from 180deg, #48361c, #966F33);
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    margin-top: 10px;
-}
-
-.shelf-front {
-    
-    height: 150px;
-    width: 275px;
-    background-image: linear-gradient(to bottom left, #48361c, #966F33);
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;
-    position: relative;
-    margin-top:-152px;
-}
-
-.one {
-    background:
-      radial-gradient(var(--newspapersize) at 25% 50% ,white 99%,#0000 101%) top/calc(var(--newspapersize) * 4) calc(var(--newspapersize) * 2) repeat-x,
-      radial-gradient(var(--newspapersize) at 75% 0%,#0000 98%,white) 50% var(--newspapersize)/calc(var(--newspapersize) * 4) 100% repeat-x; 
-}
-
-.one-small{
-    background:
-    radial-gradient(var(--newspapersize) at 25% 50% ,black 99%,#0000 101%) top/calc(var(--newspapersize) * 4) calc(var(--newspapersize) * 2) repeat-x,
-    radial-gradient(var(--newspapersize) at 75% 0%,#0000 98%,black) 50% var(--newspapersize)/calc(var(--newspapersize) * 4) 100% repeat-x;
-}
-
-.section-front{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.section-back{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.article-front-waves{
-    background:
-      radial-gradient(var(--bignewspapersize) at 25% 50% ,white 99%,#0000 101%) top/calc(var(--bignewspapersize) * 4) calc(var(--bignewspapersize) * 2) repeat-x,
-      radial-gradient(var(--bignewspapersize) at 75% 0%,#0000 98%,white) 50% var(--bignewspapersize)/calc(var(--bignewspapersize) * 4) 100% repeat-x; 
-}
-
-.article-front {
-    font-size:35px;
-    font-weight:bold;
-    width:calc(100vw - 2px);
-    max-width:798px;
-    height:auto;
-    margin-top: 1px;
-    margin-bottom: .5px;
-    bottom: 0;
-    text-align: center;
-    min-height: 99.5vh;
-}
-
-.article-back-waves{
-    background:
-    radial-gradient(var(--bignewspapersize) at 25% 50% ,black 99%,#0000 101%) top/calc(var(--bignewspapersize) * 4) calc(var(--bignewspapersize) * 2) repeat-x,
-    radial-gradient(var(--bignewspapersize) at 75% 0%,#0000 98%,black) 50% var(--bignewspapersize)/calc(var(--bignewspapersize) * 4) 100% repeat-x;
-}
-
-.article-back{
-    position: relative;
-    display:inline-grid;
-    place-content:space-evenly;
-    font-size:35px;
-    font-weight:bold;
-    width: 100vw;
-    max-width: 800px;
-    height: auto;
-    min-height: 100%;
-    margin-top: 50px;
-}
-
-.container {
-    width: 100vw;
-    max-width: 802px; /* Set the desired width */
-    height: 92vh; /* Set the desired height */
-    overflow: auto;
-    scrollbar-width: none;
-    margin: 0;
-    margin-top: -24px;
-  }
-
-.container p{
-    font-size: 0.5em;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: justify;
-    margin: 0;
-    margin-right: 36px;
-    margin-left: 36px;
-    padding: 0;
-    line-height: 1.2em; 
-    margin-left: 5px;
-    margin-bottom: 15px;
-}
-
-.container img{
-    float: right;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.center {
-    display: grid;
-    align-items:flex-start;
-    justify-items: center;
-    margin: 0;
-}
-
-.container h1 {
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    font-size: 2em;
-    margin-bottom: 24px;
-    margin-top: 36px;
-}
-
-.container::-webkit-scrollbar {
-    width: 0; /* Set the scrollbar width */
-}
-
-.back-button{
-    display: inline-flex; /* Use flexbox to center the content */
-    align-items: center; /* Center items vertically */
-    padding: 10px 20px;
-    justify-content: center;
-    font-size: 1em;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    border: 2px solid black; /* Border color */
-    background-color: lightgrey; /* Button color */
-    color: black; /* Text color */
-    border-radius: 5px; /* Rounded corners */
-    width: 100px;
-    height: 12px;
-    cursor: pointer;
-}
-
-/*ids*/
-#masthead {
-    text-align: center;
-    word-wrap: normal;
-    vertical-align: text-top;
-}
-
-/* we are adjust some things based on the screen size*/
-@media screen and (max-width: 768px){
-    .shelf{
-        margin: 0;
-    }
+#mynavbar .navbar-brand {
+    color: lightgray; /* Change the text color */
 }
