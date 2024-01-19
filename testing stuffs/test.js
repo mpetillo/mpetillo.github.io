@@ -19,7 +19,7 @@ function randomNum(beginning, end) {
 
 function pullRandomQuote() {
   const randomQuotes = ["hehe, queer coded shit.", "oh look! a random quote.", "go outside! you've been indoors all day.", "remind me not to drink the pink drink too fast.", "the way to my heart is donuts.", "i have more grey hairs than i would like to think about.", "did you miss me? of course you did! that's why you're here.", "if you see this one, shoot me a tweet at @mpetilloks saying 'CAUGHT YOU!!!!'"];
-  return randomQuotes[randomNum(0, randomQuotes.length)];
+  return randomQuotes[randomNum(0, randomQuotes.length - 1)];
 }
 
 function pullPage(page){
@@ -34,7 +34,7 @@ function pullPage(page){
   center.classList.add("fadein")
 }
 
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
   const openBox = document.getElementsByClassName("open")[0];
   const center = document.getElementById("center")
   if (openBox) {
@@ -49,4 +49,4 @@ window.onload = function() {
           .then(() => document.querySelector("footer").classList.add("fadein"))
           .then(() => center.innerHTML += '<div class="d-flex justify-content-center align-items-center" style="height: auto;"><button type="button" class="btn btn-secondary" onclick = "pullPage(\'about\')">About Me</button></div>')
   }
-};
+});
