@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clock Face</title>
+<script src="/clock.js"></script>
+<style>
+  table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+}
+</style>
+</head>
+<body></body>
+  <div id="workspace">
+  </div>
+  <br>
+  <div id="buttons">
+    <script></script>
+  </div>
+
+  <script>
+  var movements = [];
+  var handlist = [];
+  var goals = [];
+  
+    function generate_scenario(difficulty){
+      const generated_process = clockdevelopment(difficulty);
+      console.log(generated_process);
+      let workspacecontent = '<table>';
+        let button_content = ''
+      let hand = 1;
+      for (let i = 0; i < generated_process.initpositions.length; i++){
+        workspacecontent += `
+            <tr>
+              <td><h3>Hand ${hand}</h3></td>
+              <td><h2 id="hand${hand}">${generated_process.initpositions[i]}</h2></td>
+              <td><h3>Goal</h3></td>
+              <td><h2>${generated_process.finalpositions[i]}</h2></td>
+              <td><button onclick="updateHands(${hand}, ${generated_process.hours})" class="handbutton">Move Hand ${hand}</button></td>
+            </tr>
+        `;
+        hand++;
+      }
+      document.getElementById("workspace").innerHTML = workspacecontent;
+      handlist = generated_process.initpositions;
+      goals = generated_process.finalpositions;
+      movements = generated_process.movementlist;
+    }
+
+    function updateHands(hand,limit){
+      for (let i = 0; i < hand; i++){
+        handlist[i] = handlist[i] + movements[hand-1][i];
+        console.log(movements[hand-1][i])
+        if (handlist[i] > limit){
+          handlist[i] = handlist[i] - limit;
+        }
+        document.getElementById(`hand${i + 1}`).innerHTML = `${handlist[i]}`;
+      }
+      for (let i = 0; i < handlist.length; i++){
+        console.log(handlist[i] != goals[i])
+        if (handlist[i] != goals[i]){
+          return;
+        }
+      }
+      document.getElementById("workspace").innerHTML = '<p>CONGRATULATIONS!!!!!!</p>'
+    }
+
+    window.onload = function(){generateButtons();};
+  </script>
+</body>
+</html>

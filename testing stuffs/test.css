@@ -19,13 +19,19 @@ body {
     font-size: 16px; /* Example font size, adjust as needed */
     width: 100vw;
     height: 100vh;
-    z-index: 0;
+    z-index: 100;
     position: absolute;
 }
 
 .open > h1, .open > h2 {
     text-align: center;
     width: 100%; /* Ensure full width for center alignment */
+}
+
+#center h1 {
+    padding-bottom: 20px;
+    color: #606060;
+    font-weight: 600;
 }
 
 .timetogo{
@@ -73,6 +79,7 @@ footer {
 #mynavbar {
     background-color: #545B5A;
     color: lightgray;
+    z-index: 0;
 }
 #mynavbar .navbar-brand {
     color: lightgray; /* Change the text color */
